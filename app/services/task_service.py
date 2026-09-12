@@ -10,7 +10,13 @@ def list_tasks(db: Session) -> list[Task]:
 
 
 def get_task(db: Session, task_id: int) -> Task | None:
-    return db.query(Task).filter(Task.id == task_id).first()
+    # 단건이라도 태그를 함께 로딩해 추가 쿼리를 막습니다.
+    return (
+        db.query(Task)
+        .options(selectinload(Task.tags))
+        .filter(Task.id == task_id)
+        .first()
+    )
 
 
 def create_task(db: Session, title: str, tag_names: list[str]) -> Task:
