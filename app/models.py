@@ -31,6 +31,7 @@ class Task(Base):
         DateTime, default=lambda: datetime.now(timezone.utc), nullable=False
     )
 
-    # 기본 lazy 로딩(select). 목록을 만든 뒤 task마다 task.tags에 접근하면
-    # 태그 조회 쿼리가 task 개수만큼 따로 실행됩니다(N+1).
-    tags = relationship("Tag", secondary=task_tags, lazy="select")
+    # 다대다 태그는 모델 기본값으로 즉시 로딩합니다(N+1 방지).
+    # selectin은 별도 IN 쿼리 1회로 태그를 모아오므로 joinedload처럼
+    # 태그 개수만큼 행이 중복되지 않습니다.
+    tags = relationship("Tag", secondary=task_tags, lazy="selectin")
