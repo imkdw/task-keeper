@@ -1,7 +1,7 @@
 ---
 name: create-pr
 description: 현재 브랜치의 커밋과 변경 사항을 분석해서 PR 제목과 본문을 작성하고, 승인 후 gh CLI로 PR을 생성함. "PR 만들어줘", "풀리퀘스트 생성", "PR 올려줘" 요청에 사용함
-allowed-tools: Bash(git branch *), Bash(git log *), Bash(git diff *), Bash(gh pr view *), Bash(gh pr status)
+allowed-tools: Bash(git branch *), Bash(git log *), Bash(git diff *), Bash(gh pr view *), Bash(gh pr status), Bash(gh pr create *)
 ---
 
 # Github PR Creator Skill
