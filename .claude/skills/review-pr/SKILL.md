@@ -1,6 +1,6 @@
+---
 name: review-pr
 description: GitHub Pull Request를 리뷰합니다. PR의 코드 변경사항을 분석하고, 체크리스트 기반으로 코드 품질, 보안, 성능 등을 검토하여 리뷰 코멘트를 작성합니다. "PR 리뷰해줘", "이 PR 검토해줘", "#123 PR 리뷰" 등의 요청에 반응합니다.
-
 ---
 
 # PR Review Skill
